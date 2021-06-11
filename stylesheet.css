@@ -1,0 +1,65 @@
+html,
+body {
+   margin: 0;
+   padding: 0;
+}
+
+.loader-wrapper {
+   position: fixed;
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #0c0c0c;
+   z-index: 1;
+}
+
+.loader-figure {
+   width: 20em;
+   height: 20em;
+   background: rebeccapurple;
+   border-radius: 52% 48% 31% 69% / 42% 33% 67% 58%;
+   opacity: 0;
+   animation: mutation 3s ease-in-out infinite,
+              emersion 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards,
+              dissolution 1.5s cubic-bezier(0.19, 1, 0.22, 1) 5s forwards;
+}
+
+@keyframes emersion {
+   from {
+      opacity: 0;
+      transform: translateY(2em);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0em);
+   }
+}
+
+@keyframes mutation {
+   0% {
+      border-radius: 52% 48% 31% 69% / 42% 33% 67% 58%;
+   }
+
+   50% {
+      border-radius: 32% 68% 58% 42% / 42% 33% 67% 58%;
+   }
+
+   100% {
+      border-radius: 52% 48% 31% 69% / 42% 33% 67% 58%;
+   }
+}
+
+@keyframes dissolution {
+   from {
+      opacity: 1;
+      transform: translateY(0em);
+   }
+
+   to {
+      opacity: 0;
+      transform: translateY(-2em);
+   }
+}
